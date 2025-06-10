@@ -32,7 +32,7 @@
       padding: 1.5rem 0.8rem 3rem;
       min-height: 100vh;
       display: flex;
-      flex-direction: column; /* Mengatur body sebagai flex container vertikal */
+      flex-direction: column;
       align-items: center;
       animation: fadeIn 0.8s ease forwards;
     }
@@ -85,14 +85,14 @@
         font-size: 0.95rem;
     }
 
-    .main-content-wrapper { /* Wrapper baru untuk konten utama */
-      flex-grow: 1; /* Agar wrapper ini mengambil ruang sisa di antara header dan footer */
+    .main-content-wrapper {
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 900px; /* Batasi lebar seperti grid container */
-      position: relative; /* Penting untuk not-found-message */
+      max-width: 900px;
+      position: relative;
     }
 
     .module-grid-container {
@@ -100,16 +100,13 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.2rem;
-      /* Hapus position: relative; dari sini */
       min-height: 250px;
-      /* Tambahkan flex properties untuk saat kosong */
-      justify-content: center; /* Untuk menengahkan item grid jika sedikit */
-      align-items: flex-start; /* Mengatur item ke atas saat banyak */
+      justify-content: center;
+      align-items: flex-start;
     }
 
-    /* Style when no modules are present (or all are hidden) */
-    .module-grid-container.empty-grid { /* Kelas baru untuk menandai grid kosong */
-      display: flex; /* Ubah ke flex untuk centering */
+    .module-grid-container.empty-grid {
+      display: flex;
       justify-content: center;
       align-items: center;
     }
@@ -197,7 +194,7 @@
       text-align: center;
       font-size: 0.8rem;
       color: var(--secondary-text-color);
-      margin-top: auto; /* Penting: mendorong footer ke bawah */
+      margin-top: auto;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border-color);
       display: flex;
@@ -285,32 +282,26 @@
     }
 
     .not-found-message {
-      /* Hapus properti absolute positioning */
-      /* position: absolute; */
-      /* top: 50%; */
-      /* left: 50%; */
-      /* transform: translate(-50%, -50%); */
-
       text-align: center;
       color: var(--secondary-text-color);
       font-size: 1rem;
-      display: none; /* Tetap disembunyikan secara default */
+      display: none;
       flex-direction: column;
-      align-items: center; /* Untuk menengahkan elemen di flex container */
+      align-items: center;
       gap: 10px;
       width: 85%;
       max-width: 350px;
-      margin: auto; /* Untuk menengahkan secara vertikal dan horizontal di flex item */
-      padding: 20px; /* Sedikit padding agar tidak terlalu mepet */
+      margin: auto;
+      padding: 20px;
     }
 
     .not-found-message span {
         font-size: 2.5rem;
-        margin-bottom: 5px; /* Jarak antara emoji dan teks */
+        margin-bottom: 5px;
     }
 
     .not-found-message p {
-        margin: 0; /* Hapus margin default paragraf */
+        margin: 0;
         line-height: 1.4;
     }
   </style>
@@ -322,8 +313,9 @@
     <input type="text" id="searchInput" placeholder="Cari module berdasarkan nama...">
   </div>
 
-  <div class="main-content-wrapper"> <div class="module-grid-container" id="moduleGridContainer">
-    
+  <div class="main-content-wrapper">
+    <div class="module-grid-container" id="moduleGridContainer">
+
         <section class="module-card">
         <div class="module-card-header">
           <h3>PUBG MOBILE BOSSTER</h3>
@@ -337,7 +329,7 @@
         <div class="module-description">BOSTER FOR PUBG MOBILE ( GLOBAL VERSION)</div>
         <a class="download-btn" href="https://sfl.gl/XW8QF" download>Unduh Module</a>
       </section>
-    
+
         <section class="module-card">
         <div class="module-card-header">
           <h3>VEXIRO MODULES</h3>
@@ -350,7 +342,7 @@
         <p class="module-info">VERSION 5</p>
         <a class="download-btn" href="https://sfl.gl/zzX9opVe" download>Unduh Module</a>
       </section>
-    
+
       <section class="module-card">
         <div class="module-card-header">
           <h3>Vorvex Modules</h3>
@@ -424,7 +416,8 @@
       <p>Wah modul yang kamu cari tidak ada di sini nih !!</p>
       <p>Coba cek lagi atau cari dengan kata kunci lain ya </p>
     </div>
-  </div> <div class="footer">
+  </div>
+  <div class="footer">
     <div class="footer-social-links">
       <a href="https://www.youtube.com/@traatweak" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
       <a href="https://t.me/traatweak" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
@@ -439,24 +432,19 @@
     const moduleGridContainer = document.getElementById("moduleGridContainer");
     const cards = moduleGridContainer.querySelectorAll(".module-card");
     const notFoundMessage = document.getElementById("notFoundMessage");
-    const mainContentWrapper = document.querySelector(".main-content-wrapper"); // Dapatkan wrapper baru
+    const mainContentWrapper = document.querySelector(".main-content-wrapper");
 
-    // Function to update the visibility of the "not found" message
     function updateNotFoundMessageVisibility() {
       const visibleCards = Array.from(cards).filter(card => card.style.display !== "none");
-      
+
       if (visibleCards.length === 0) {
-        moduleGridContainer.style.display = "none"; // Sembunyikan grid container
-        notFoundMessage.style.display = "flex"; // Tampilkan pesan
-        
-        // Atur main-content-wrapper agar pesan berada di tengah vertikal
+        moduleGridContainer.style.display = "none";
+        notFoundMessage.style.display = "flex";
         mainContentWrapper.style.justifyContent = "center";
         mainContentWrapper.style.alignItems = "center";
       } else {
-        moduleGridContainer.style.display = "grid"; // Tampilkan grid container
-        notFoundMessage.style.display = "none"; // Sembunyikan pesan
-        
-        // Reset properti main-content-wrapper
+        moduleGridContainer.style.display = "grid";
+        notFoundMessage.style.display = "none";
         mainContentWrapper.style.justifyContent = "flex-start";
         mainContentWrapper.style.alignItems = "flex-start";
       }
@@ -464,7 +452,7 @@
 
     searchInput.addEventListener("input", () => {
       const query = searchInput.value.toLowerCase();
-      
+
       cards.forEach(card => {
         const title = card.querySelector("h3").textContent.toLowerCase();
         if (title.startsWith(query)) {
@@ -473,14 +461,23 @@
           card.style.display = "none";
         }
       });
-      updateNotFoundMessageVisibility(); // Call the function after filtering
+      updateNotFoundMessageVisibility();
     });
 
     // Initial check on page load
     updateNotFoundMessageVisibility();
-  </script>
 
-  <script type='text/javascript' src='//pl26884513.profitableratecpm.com/4b/7c/83/4b7c832461ef46bcb0a95e6784d8730f.js'></script>
+    // Fungsi untuk memuat iklan
+    function loadAdScript() {
+      const adScript = document.createElement('script');
+      adScript.type = 'text/javascript';
+      adScript.src = '//pl26884513.profitableratecpm.com/4b/7c/83/4b7c832461ef46bcb0a95e6784d8730f.js';
+      document.body.appendChild(adScript);
+    }
+
+    // Panggil fungsi loadAdScript setelah DOM selesai dimuat
+    document.addEventListener('DOMContentLoaded', loadAdScript);
+  </script>
 
 </body>
 </html>
