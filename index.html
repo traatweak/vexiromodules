@@ -29,7 +29,7 @@
       background-color: var(--background-color);
       color: var(--text-color);
       font-family: 'Poppins', sans-serif;
-      padding: 2rem 1rem 4rem;
+      padding: 1.5rem 0.8rem 3rem;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -52,22 +52,22 @@
 
     .search-container {
       width: 100%;
-      max-width: 600px;
-      margin-bottom: 2rem;
+      max-width: 500px;
+      margin-bottom: 1.5rem;
       text-align: center;
       position: relative;
     }
 
     .search-container input {
       width: 100%;
-      padding: 10px 18px 10px 40px;
-      font-size: 0.95rem;
-      border-radius: 24px;
+      padding: 10px 15px 10px 35px;
+      font-size: 0.9rem;
+      border-radius: 20px;
       border: 1px solid var(--border-color);
       background-color: var(--card-color);
       color: var(--text-color);
       outline: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       transition: 0.3s ease;
     }
 
@@ -78,22 +78,21 @@
 
     .search-icon {
         position: absolute;
-        left: 15px;
+        left: 12px;
         top: 50%;
         transform: translateY(-50%);
         color: var(--secondary-text-color);
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
-
 
     .module-grid-container {
       width: 100%;
-      max-width: 1000px;
+      max-width: 900px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
       position: relative;
-      min-height: 300px;
+      min-height: 250px;
     }
 
     @media (max-width: 768px) {
@@ -105,9 +104,9 @@
     .module-card {
       background-color: var(--card-color);
       border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1rem;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
@@ -116,34 +115,36 @@
     }
 
     .module-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
     }
 
     .module-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
     }
 
     .module-card h3 {
       font-size: 1.1rem;
       color: var(--primary-color);
       margin: 0;
+      flex-grow: 1;
+      margin-right: 0.5rem;
     }
 
     .module-info {
       color: var(--secondary-text-color);
-      /* MENYESUAIKAN UKURAN FONT DI SINI */
-      font-size: 0.9rem; /* Diubah dari 0.8rem menjadi 0.9rem */
+      font-size: 0.85rem;
       margin-bottom: 0.8rem;
     }
 
     .module-description {
       font-size: 0.9rem;
       line-height: 1.5;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
     }
 
     .download-btn {
@@ -154,20 +155,28 @@
       text-align: center;
       border-radius: 999px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       text-decoration: none;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      cursor: pointer; /* Menambahkan cursor pointer */
     }
 
     .download-btn:hover {
       background-color: var(--button-hover-color);
-      transform: scale(1.03);
-      box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+      transform: scale(1.02);
+      box-shadow: 0 3px 10px rgba(88, 166, 255, 0.25);
+    }
+
+    .download-btn:active {
+      background-color: var(--primary-color);
+      transform: scale(1);
     }
 
     .footer {
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--secondary-text-color);
       margin-top: 3rem;
       padding-top: 1.5rem;
@@ -175,12 +184,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
+      width: 100%;
+      max-width: 900px;
     }
 
     .footer-social-links {
         display: flex;
-        gap: 1rem;
+        gap: 1.2rem;
     }
 
     .footer-social-links a {
@@ -191,11 +202,11 @@
 
     .footer-social-links a:hover {
         color: var(--primary-color);
-        transform: translateY(-3px);
+        transform: translateY(-2px);
     }
 
     .footer-license {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         color: #777;
         margin-top: 0.5rem;
         line-height: 1.4;
@@ -203,20 +214,22 @@
 
     .module-badges-container {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       z-index: 10;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .module-badge {
         color: white;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         font-weight: 600;
-        padding: 4px 7px;
-        border-radius: 6px;
+        padding: 3px 6px;
+        border-radius: 5px;
         display: flex;
         align-items: center;
-        gap: 4px;
-        box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+        gap: 3px;
+        box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
         white-space: nowrap;
     }
 
@@ -230,40 +243,42 @@
     }
 
     .module-badge i {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .module-badge.safelinku-crossed {
         background-color: #dc3545;
         text-decoration: line-through;
         opacity: 0.8;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
     .module-badge.safelinku-crossed i {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .module-badge.recommended {
         background-color: #17a2b8;
         color: white;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
     .module-badge.recommended i {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .not-found-message {
       position: absolute;
-      top: 40%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
       color: var(--secondary-text-color);
-      font-size: 1.1rem;
+      font-size: 1rem;
       display: none;
       flex-direction: column;
       align-items: center;
       gap: 10px;
+      width: 85%;
+      max-width: 350px;
     }
 
     .not-found-message span {
@@ -279,19 +294,44 @@
   </div>
 
   <div class="module-grid-container">
-    <section class="module-card">
+  
+      <section class="module-card">
       <div class="module-card-header">
-        <h3>Vorvex Modules</h3>
+        <h3>PUBG MOBILE BOSSTER</h3>
         <div class="module-badges-container">
           <div class="module-badge latest">
             <i class="fas fa-magic"></i> Latest
           </div>
+        </div>
+      </div>
+      <p class="module-info">@traatweak</p>
+      <div class="module-description">BOSTER FOR PUBG MOBILE ( GLOBAL VERSION)</div>
+      <a class="download-btn" href="https://sfl.gl/XW8QF" download>Unduh Module</a>
+    </section>
+  
+      <section class="module-card">
+      <div class="module-card-header">
+        <h3>VEXIRO MODULES</h3>
+        <div class="module-badges-container">
+          <div class="module-badge latest">
+            <i class="fas fa-magic"></i> Latest
+          </div>
+        </div>
+      </div>
+      <p class="module-info">VERSION 5</p>
+      <a class="download-btn" href="https://sfl.gl/zzX9opVe" download>Unduh Module</a>
+    </section>
+  
+    <section class="module-card">
+      <div class="module-card-header">
+        <h3>Vorvex Modules</h3>
+        <div class="module-badges-container">
           <div class="module-badge popular">
             <i class="fas fa-fire"></i> Populer
           </div>
         </div>
       </div>
-      <p class="module-info">Versi: Universal | @traatweak</p>
+      <p class="module-info">@traatweak</p>
       <div class="module-description">Modul ini berfungsi untuk mengoptimalkan penggunaan GPU dan CPU guna meningkatkan kestabilan performa, serta menjaga FPS agar tetap konsisten dibandingkan versi sebelumnya</div>
       <a class="download-btn" href="https://sfl.gl/t92ui" download>Unduh Module</a>
     </section>
@@ -305,28 +345,32 @@
           </div>
         </div>
       </div>
-      <p class="module-info">Versi: BETA | @KxzeTweak</p>
+      <p class="module-info">@KxzeTweak</p>
       <div class="module-description">improving PERFORMANCE and FPS</div>
-      <a class="download-btn" href="https://sfl.gl/FVKT6JO8" download>Unduh Module</a>
+      <a class="download-btn" href="https://drive.google.com/file/d/15fkYAJYzW6sAM8CQ2Q9mabdqAsPzeFws/view?usp=drivesdk" download>Unduh Module</a>
     </section>
 
     <section class="module-card">
       <h3>MODE PERFORMANCE</h3>
-      <p class="module-info">Versi: 1.0 | @KxzeTweak</p>
+      <p class="module-info">@KxzeTweak</p>
       <div class="module-description">FPS STABIL. Focus on maximum CPU/GPU. note: use a phone cooler</div>
       <a class="download-btn" href="https://sfl.gl/XorK" download>Unduh Module</a>
     </section>
 
     <section class="module-card">
       <h3>Evolution Module Gaming(EMG)V10☕</h3>
-      <p class="module-info">Versi: 10 | @COOL☕</p>
+      <p class="module-info">@COOL☕</p>
       <div class="module-description">tingkatkan gameplay, rendering, touch, FPS, dan banyak lagi fitur lainnya.</div>
       <a class="download-btn" href="https://sfl.gl/xIVSAi" download>Unduh Module</a>
     </section>
 
     <section class="module-card">
-      <h3>Android Temperature Optimizer(ATO)V1❄️</h3>
-      <p class="module-info">Versi: 1 | @COOL☕</p>
+      <div class="module-card-header">
+        <h3>Android Temperature Optimizer(ATO)V1❄️</h3>
+        <div class="module-badges-container">
+        </div>
+      </div>
+      <p class="module-info">@COOL☕</p>
       <div class="module-description">mendinginkan device sebrutal mungkin</div>
       <a class="download-btn" href="https://sfl.gl/vmhiokE7" download>Unduh Module</a>
     </section>
@@ -340,7 +384,7 @@
           </div>
         </div>
       </div>
-      <p class="module-info">Versi: Universal | @Cakra</p>
+      <p class="module-info">@Cakra</p>
       <div class="module-description">Meningkatkan responsivitas UI, smoothness animasi, dan efisiensi frame timing</div>
       <a class="download-btn" href="https://sfl.gl/vuT1RB" download>Unduh Module</a>
     </section>
@@ -348,8 +392,8 @@
 
   <div class="not-found-message" id="notFoundMessage">
     <span role="img" aria-label="Bingung">🤔</span>
-    <p>Wah, modul yang kamu cari tidak ada di sini, nih!</p>
-    <p>Coba cek lagi atau cari dengan kata kunci lain, ya.</p>
+    <p>Wah modul yang kamu cari tidak ada di sini nih !!</p>
+    <p>Coba cek lagi atau cari dengan kata kunci lain ya </p>
   </div>
 
   <div class="footer">
@@ -358,8 +402,8 @@
       <a href="https://t.me/traatweak" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
       <a href="mailto:your_email@example.com" aria-label="Gmail"><i class="fas fa-envelope"></i></a>
     </div>
-    <span>© 2025 **Magiks Vexiro**. Dikembangkan oleh **@traatweak**.</span>
-    <span class="footer-license">Semua modul tersedia di bawah lisensi MIT. Penggunaan situs ini diatur oleh Kebijakan Privasi dan Syarat & Ketentuan. Terakhir diperbarui pada 10 Juni 2025.</span>
+    <span>© 2025 Magiks Vexiro Dikembangkan oleh @traatweak </span>
+    <span class="footer-license">Semua modul tersedia di bawah lisensi MIT Penggunaan situs ini diatur oleh Kebijakan Privasi dan Syarat & Ketentuan Terakhir diperbarui pada 10 Juni 2025 </span>
   </div>
 
   <script>
