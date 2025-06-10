@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Module Terbaru - Magiks Vexiro</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary-color: #58a6ff;
+      --background-color: #0d1117;
+      --card-color: #1a202c;
+      --text-color: #e2e8f0;
+      --secondary-text-color: #a0aec0;
+      --border-color: #2d3748;
+      --button-hover-color: #4a90e2;
+      --hover-effect-color: rgba(88, 166, 255, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      padding: 2rem 1rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.98);
+        filter: blur(4px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .search-container {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 10px 18px 10px 40px;
+      font-size: 0.95rem;
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      background-color: var(--card-color);
+      color: var(--text-color);
+      outline: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      transition: 0.3s ease;
+    }
+
+    .search-container input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px var(--hover-effect-color);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--secondary-text-color);
+        font-size: 1rem;
+    }
+
+
+    .module-grid-container {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      position: relative;
+      min-height: 300px;
+    }
+
+    @media (max-width: 768px) {
+      .module-grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .module-card {
+      background-color: var(--card-color);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .module-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .module-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .module-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin: 0;
+    }
+
+    .module-info {
+      color: var(--secondary-text-color);
+      /* MENYESUAIKAN UKURAN FONT DI SINI */
+      font-size: 0.9rem; /* Diubah dari 0.8rem menjadi 0.9rem */
+      margin-bottom: 0.8rem;
+    }
+
+    .module-description {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    .download-btn {
+      margin-top: auto;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background-color: var(--button-hover-color);
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--secondary-text-color);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .footer-social-links a {
+        color: var(--secondary-text-color);
+        font-size: 1.5rem;
+        transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .footer-social-links a:hover {
+        color: var(--primary-color);
+        transform: translateY(-3px);
+    }
+
+    .footer-license {
+        font-size: 0.75rem;
+        color: #777;
+        margin-top: 0.5rem;
+        line-height: 1.4;
+    }
+
+    .module-badges-container {
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .module-badge {
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 4px 7px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+        white-space: nowrap;
+    }
+
+    .module-badge.latest {
+        background-color: #28a745;
+    }
+
+    .module-badge.popular {
+        background-color: #ffc107;
+        color: #333;
+    }
+
+    .module-badge i {
+        font-size: 0.8rem;
+    }
+
+    .module-badge.safelinku-crossed {
+        background-color: #dc3545;
+        text-decoration: line-through;
+        opacity: 0.8;
+        font-size: 0.7rem;
+    }
+    .module-badge.safelinku-crossed i {
+        font-size: 0.8rem;
+    }
+
+    .module-badge.recommended {
+        background-color: #17a2b8;
+        color: white;
+        font-size: 0.7rem;
+    }
+    .module-badge.recommended i {
+        font-size: 0.8rem;
+    }
+
+    .not-found-message {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: var(--secondary-text-color);
+      font-size: 1.1rem;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .not-found-message span {
+        font-size: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <span class="search-icon"><i class="fas fa-magnifying-glass"></i></span>
+    <input type="text" id="searchInput" placeholder="Cari module berdasarkan nama...">
+  </div>
+
+  <div class="module-grid-container">
+    <section class="module-card">
+      <div class="module-card-header">
+        <h3>Vorvex Modules</h3>
+        <div class="module-badges-container">
+          <div class="module-badge latest">
+            <i class="fas fa-magic"></i> Latest
+          </div>
+          <div class="module-badge popular">
+            <i class="fas fa-fire"></i> Populer
+          </div>
+        </div>
+      </div>
+      <p class="module-info">Versi: Universal | @traatweak</p>
+      <div class="module-description">Modul ini berfungsi untuk mengoptimalkan penggunaan GPU dan CPU guna meningkatkan kestabilan performa, serta menjaga FPS agar tetap konsisten dibandingkan versi sebelumnya</div>
+      <a class="download-btn" href="https://sfl.gl/t92ui" download>Unduh Module</a>
+    </section>
+
+    <section class="module-card">
+      <div class="module-card-header">
+        <h3>GAMING (for device VIVO)</h3>
+        <div class="module-badges-container">
+          <div class="module-badge safelinku-crossed">
+            <i class="fas fa-times"></i> Safelinku
+          </div>
+        </div>
+      </div>
+      <p class="module-info">Versi: BETA | @KxzeTweak</p>
+      <div class="module-description">improving PERFORMANCE and FPS</div>
+      <a class="download-btn" href="https://sfl.gl/FVKT6JO8" download>Unduh Module</a>
+    </section>
+
+    <section class="module-card">
+      <h3>MODE PERFORMANCE</h3>
+      <p class="module-info">Versi: 1.0 | @KxzeTweak</p>
+      <div class="module-description">FPS STABIL. Focus on maximum CPU/GPU. note: use a phone cooler</div>
+      <a class="download-btn" href="https://sfl.gl/XorK" download>Unduh Module</a>
+    </section>
+
+    <section class="module-card">
+      <h3>Evolution Module Gaming(EMG)V10☕</h3>
+      <p class="module-info">Versi: 10 | @COOL☕</p>
+      <div class="module-description">tingkatkan gameplay, rendering, touch, FPS, dan banyak lagi fitur lainnya.</div>
+      <a class="download-btn" href="https://sfl.gl/xIVSAi" download>Unduh Module</a>
+    </section>
+
+    <section class="module-card">
+      <h3>Android Temperature Optimizer(ATO)V1❄️</h3>
+      <p class="module-info">Versi: 1 | @COOL☕</p>
+      <div class="module-description">mendinginkan device sebrutal mungkin</div>
+      <a class="download-btn" href="https://sfl.gl/vmhiokE7" download>Unduh Module</a>
+    </section>
+
+    <section class="module-card">
+      <div class="module-card-header">
+        <h3>FRAME MASTER</h3>
+        <div class="module-badges-container">
+          <div class="module-badge recommended">
+            <i class="fas fa-thumbs-up"></i> Rekomended
+          </div>
+        </div>
+      </div>
+      <p class="module-info">Versi: Universal | @Cakra</p>
+      <div class="module-description">Meningkatkan responsivitas UI, smoothness animasi, dan efisiensi frame timing</div>
+      <a class="download-btn" href="https://sfl.gl/vuT1RB" download>Unduh Module</a>
+    </section>
+  </div>
+
+  <div class="not-found-message" id="notFoundMessage">
+    <span role="img" aria-label="Bingung">🤔</span>
+    <p>Wah, modul yang kamu cari tidak ada di sini, nih!</p>
+    <p>Coba cek lagi atau cari dengan kata kunci lain, ya.</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-social-links">
+      <a href="https://www.youtube.com/@traatweak" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://t.me/traatweak" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+      <a href="mailto:your_email@example.com" aria-label="Gmail"><i class="fas fa-envelope"></i></a>
+    </div>
+    <span>© 2025 **Magiks Vexiro**. Dikembangkan oleh **@traatweak**.</span>
+    <span class="footer-license">Semua modul tersedia di bawah lisensi MIT. Penggunaan situs ini diatur oleh Kebijakan Privasi dan Syarat & Ketentuan. Terakhir diperbarui pada 10 Juni 2025.</span>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".module-card");
+    const notFoundMessage = document.getElementById("notFoundMessage");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      let foundModules = 0;
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        if (title.startsWith(query)) {
+          card.style.display = "flex";
+          foundModules++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      if (foundModules === 0) {
+        notFoundMessage.style.display = "flex";
+      } else {
+        notFoundMessage.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
