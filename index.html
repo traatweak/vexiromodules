@@ -85,6 +85,14 @@
         font-size: 0.95rem;
     }
 
+    /* Gaya untuk penempatan banner iklan */
+    .ad-banner-container {
+      width: 100%;
+      max-width: 468px; /* Mengikuti lebar iklan 468px */
+      margin: 1.5rem auto; /* Atur margin atas dan bawah, dan tengah secara horizontal */
+      text-align: center;
+    }
+
     .main-content-wrapper {
       flex-grow: 1;
       display: flex;
@@ -304,6 +312,16 @@
         margin: 0;
         line-height: 1.4;
     }
+
+    /* Media query untuk responsivitas iklan */
+    @media (max-width: 480px) {
+        .ad-banner-container {
+            max-width: 320px; /* Lebar umum untuk mobile */
+            margin: 1rem auto;
+        }
+        /* Jika Adstera menyediakan ukuran banner yang lebih kecil, Anda bisa gunakan di sini */
+        /* Contoh: .adstera-banner iframe { width: 320px !important; height: 50px !important; } */
+    }
   </style>
 </head>
 <body>
@@ -311,6 +329,19 @@
   <div class="search-container">
     <span class="search-icon"><i class="fas fa-magnifying-glass"></i></span>
     <input type="text" id="searchInput" placeholder="Cari module berdasarkan nama...">
+  </div>
+
+  <div class="ad-banner-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '16e6a6bdb802c305cf64ae0adf94bbf3',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/16e6a6bdb802c305cf64ae0adf94bbf3/invoke.js"></script>
   </div>
 
   <div class="main-content-wrapper">
@@ -467,7 +498,12 @@
     // Initial check on page load
     updateNotFoundMessageVisibility();
 
-    // Fungsi untuk memuat iklan
+    // Fungsi untuk memuat iklan Adstera lainnya (jika ada, dan bukan iklan banner yang sudah ditempatkan)
+    // Saya telah menghapus script adsense yang Anda berikan sebelumnya,
+    // karena Adstera sudah ditempatkan secara eksplisit di HTML.
+    // Jika ada script iklan lain yang perlu dimuat secara dinamis,
+    // tempatkan di sini.
+    /*
     function loadAdScript() {
       const adScript = document.createElement('script');
       adScript.type = 'text/javascript';
@@ -475,8 +511,8 @@
       document.body.appendChild(adScript);
     }
 
-    // Panggil fungsi loadAdScript setelah DOM selesai dimuat
     document.addEventListener('DOMContentLoaded', loadAdScript);
+    */
   </script>
 
 </body>
