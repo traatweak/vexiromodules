@@ -53,7 +53,7 @@
     .search-container {
       width: 100%;
       max-width: 500px;
-      margin-bottom: 1.5rem;
+      /* margin-bottom akan dipindahkan ke iklan */
       text-align: center;
       position: relative;
     }
@@ -85,19 +85,20 @@
         font-size: 0.95rem;
     }
 
-    /* Gaya untuk penempatan banner iklan */
+    /* --- Gaya untuk Satu Banner Iklan di Atas --- */
     .ad-banner-container {
       width: 100%;
-      max-width: 468px; /* Mengikuti lebar iklan 468px */
-      margin: 1.5rem auto; /* Atur margin atas dan bawah, dan tengah secara horizontal */
+      /* Margin atas untuk jarak dari search bar, margin bawah untuk jarak ke modul */
+      margin: 1.5rem auto 1.5rem auto; /* Jarak atas 1.5rem, bawah 1.5rem */
       text-align: center;
+      max-width: 728px; /* Lebar maksimum untuk iklan leaderboard (728x90) */
     }
 
-    /* CSS tambahan untuk membuat iframe iklan responsif */
     .ad-banner-container iframe {
         width: 100% !important; /* Memaksa iframe untuk mengambil 100% lebar parent */
         height: auto !important; /* Memastikan tinggi menyesuaikan proporsi */
-        min-height: 60px; /* Atur tinggi minimum sesuai kebutuhan, contoh 60px */
+        min-height: 90px; /* Tinggi minimum untuk 728x90 */
+        display: block; /* Memastikan tidak ada spasi putih di bawah iframe */
     }
 
     .main-content-wrapper {
@@ -326,14 +327,24 @@
     }
 
     /* Media query untuk responsivitas iklan */
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
         .ad-banner-container {
-            max-width: 320px; /* Lebar umum untuk mobile */
+            max-width: 468px; /* Umumnya 468x60 untuk tablet */
             margin: 1rem auto;
         }
-        /* Sesuaikan iframe juga untuk mobile */
         .ad-banner-container iframe {
-            min-height: 50px;
+            min-height: 60px; /* Untuk 468x60 */
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Untuk layar ponsel yang lebih kecil */
+        .ad-banner-container {
+            max-width: 320px; /* Mengurangi lebar maksimal agar pas di layar kecil */
+            margin: 1rem auto;
+        }
+        .ad-banner-container iframe {
+            min-height: 50px; /* Untuk 320x50 */
         }
     }
   </style>
@@ -345,10 +356,22 @@
     <input type="text" id="searchInput" placeholder="Cari module berdasarkan nama...">
   </div>
 
+  <div class="ad-banner-container">
+      <script type="text/javascript">
+          atOptions = {
+              'key' : 'GANTI_DENGAN_KEY_IKLAN_ADSTERRA_KAMU', /* Contoh: '123456abcdefg' */
+              'format' : 'iframe',
+              'height' : 90, /* Tinggi untuk 728x90 */
+              'width' : 728, /* Lebar untuk 728x90 */
+              'params' : {}
+          };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/GANTI_DENGAN_KEY_IKLAN_ADSTERRA_KAMU/invoke.js"></script>
+  </div>
   <div class="main-content-wrapper">
     <div class="module-grid-container" id="moduleGridContainer">
 
-        <section class="module-card">
+      <section class="module-card">
         <div class="module-card-header">
           <h3>RENDER ENGINE</h3>
           <div class="module-badges-container">
@@ -369,7 +392,7 @@
         <a class="download-btn" href="https://drive.google.com/file/d/17TqLhT0W4IEAH7Yd8GJ2ipqB2GMMV8W5/view?usp=drivesdk" download>Unduh Module</a>
       </section>
 
-        <section class="module-card">
+      <section class="module-card">
         <div class="module-card-header">
           <h3>GAMING PERV</h3>
           <div class="module-badges-container">
@@ -386,7 +409,7 @@
         <a class="download-btn" href="https://sfl.gl/VLrYc" download>Unduh Module</a>
       </section>
 
-        <section class="module-card">
+      <section class="module-card">
         <div class="module-card-header">
           <h3>PUBG MOBILE BOSSTER</h3>
           <div class="module-badges-container">
@@ -400,7 +423,7 @@
         <a class="download-btn" href="https://sfl.gl/XW8QF" download>Unduh Module</a>
       </section>
 
-        <section class="module-card">
+      <section class="module-card">
         <div class="module-card-header">
           <h3>VEXIRO MODULES</h3>
           <div class="module-badges-container">
@@ -496,19 +519,6 @@
     </div>
     <span>© 2025 Magiks Vexiro Dikembangkan oleh @traatweak </span>
     <span class="footer-license">Semua modul tersedia di bawah lisensi MIT Penggunaan situs ini diatur oleh Kebijakan Privasi dan Syarat & Ketentuan Terakhir diperbarui pada 11 Juni 2025 </span>
-
-    <div class="ad-banner-container">
-        <script type="text/javascript">
-            atOptions = {
-                'key' : '16e6a6bdb802c305cf64ae0adf94bbf3',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/16e6a6bdb802c305cf64ae0adf94bbf3/invoke.js"></script>
-    </div>
   </div>
 
   <script>
