@@ -30,7 +30,7 @@
       color: var(--text-color);
       font-family: 'Poppins', sans-serif;
       padding: 1.5rem 0.8rem 3rem;
-      min-height: 100vh; /* Mengubah kembali min-height agar footer selalu di bawah */
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -91,6 +91,13 @@
       max-width: 468px; /* Mengikuti lebar iklan 468px */
       margin: 1.5rem auto; /* Atur margin atas dan bawah, dan tengah secara horizontal */
       text-align: center;
+    }
+
+    /* CSS tambahan untuk membuat iframe iklan responsif */
+    .ad-banner-container iframe {
+        width: 100% !important; /* Memaksa iframe untuk mengambil 100% lebar parent */
+        height: auto !important; /* Memastikan tinggi menyesuaikan proporsi */
+        min-height: 60px; /* Atur tinggi minimum sesuai kebutuhan, contoh 60px */
     }
 
     .main-content-wrapper {
@@ -240,14 +247,14 @@
       display: flex;
       gap: 6px;
       z-index: 10;
-      flex-wrap: nowrap; /* Memastikan tidak ada wrapping */
+      flex-wrap: nowrap;
       justify-content: flex-end;
-      align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+      align-items: center;
     }
 
     .module-badge {
         color: white;
-        font-size: 0.65rem; /* Ukuran font awal */
+        font-size: 0.65rem;
         font-weight: 600;
         padding: 3px 6px;
         border-radius: 5px;
@@ -255,7 +262,7 @@
         align-items: center;
         gap: 3px;
         box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
-        white-space: nowrap; /* Mencegah teks untuk wrap */
+        white-space: nowrap;
     }
 
     .module-badge.latest {
@@ -311,10 +318,10 @@
     }
 
     /* Media query untuk responsivitas badge */
-    @media (max-width: 375px) { /* Sesuaikan nilai ini jika perlu */
+    @media (max-width: 375px) {
         .module-badge {
-            font-size: 0.55rem; /* Menurunkan ukuran font pada layar kecil */
-            padding: 2px 4px; /* Menyesuaikan padding */
+            font-size: 0.55rem;
+            padding: 2px 4px;
         }
     }
 
@@ -323,6 +330,10 @@
         .ad-banner-container {
             max-width: 320px; /* Lebar umum untuk mobile */
             margin: 1rem auto;
+        }
+        /* Sesuaikan iframe juga untuk mobile */
+        .ad-banner-container iframe {
+            min-height: 50px;
         }
     }
   </style>
