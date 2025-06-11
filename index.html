@@ -34,7 +34,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      animation: fadeIn 0.8s ease forwards;
+      /* Animasi fadeIn akan dikelola oleh JavaScript untuk efek yang lebih terkontrol */
+      opacity: 0; /* Mulai dengan opacity 0 */
+      transform: scale(0.98); /* Sedikit kecil di awal */
+      filter: blur(4px); /* Blur di awal */
+    }
+
+    /* Animasi untuk memunculkan halaman saat pertama kali dibuka */
+    .body-loaded {
+      animation: fadeIn 1.5s ease forwards; /* Durasi diubah menjadi 1.5s */
     }
 
     @keyframes fadeIn {
@@ -53,7 +61,7 @@
     .search-container {
       width: 100%;
       max-width: 500px;
-      /* margin-bottom akan dipindahkan ke iklan */
+      margin-bottom: 1.5rem; /* Jarak antara search bar dan modul */
       text-align: center;
       position: relative;
     }
@@ -85,11 +93,10 @@
         font-size: 0.95rem;
     }
 
-    /* --- Gaya untuk Satu Banner Iklan di Atas --- */
+    /* --- Gaya untuk Banner Iklan di Bawah --- */
     .ad-banner-container {
       width: 100%;
-      /* Margin atas untuk jarak dari search bar, margin bawah untuk jarak ke modul */
-      margin: 1.5rem auto 1.5rem auto; /* Jarak atas 1.5rem, bawah 1.5rem */
+      margin: 1.5rem auto 1.5rem auto; /* Jarak atas 1.5rem, bawah 1.5rem dari footer */
       text-align: center;
       max-width: 728px; /* Lebar maksimum untuk iklan leaderboard (728x90) */
     }
@@ -356,18 +363,6 @@
     <input type="text" id="searchInput" placeholder="Cari module berdasarkan nama...">
   </div>
 
-  <div class="ad-banner-container">
-      <script type="text/javascript">
-          atOptions = {
-              'key' : 'GANTI_DENGAN_KEY_IKLAN_ADSTERRA_KAMU', /* Contoh: '123456abcdefg' */
-              'format' : 'iframe',
-              'height' : 90, /* Tinggi untuk 728x90 */
-              'width' : 728, /* Lebar untuk 728x90 */
-              'params' : {}
-          };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/GANTI_DENGAN_KEY_IKLAN_ADSTERRA_KAMU/invoke.js"></script>
-  </div>
   <div class="main-content-wrapper">
     <div class="module-grid-container" id="moduleGridContainer">
 
@@ -511,6 +506,19 @@
     </div>
   </div>
 
+  <div class="ad-banner-container">
+      <script type="text/javascript">
+          atOptions = {
+              'key' : 'GANTI_DENGAN_KEY_IKLAN_ADSTERRA_KAMU', /* Contoh: '123456abcdefg' */
+              'format' : 'iframe',
+              'height' : 90, /* Tinggi untuk 728x90 */
+              'width' : 728, /* Lebar untuk 728x90 */
+              'params' : {}
+          };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/GANTI_DENGAN_KEY_IKLAN_ADSTERRA_KAMU/invoke.js"></script>
+  </div>
+
   <div class="footer">
     <div class="footer-social-links">
       <a href="https://www.youtube.com/@traatweak" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -558,8 +566,11 @@
       updateNotFoundMessageVisibility();
     });
 
-    // Initial check on page load
-    updateNotFoundMessageVisibility();
+    // Tambahkan class 'body-loaded' ke body setelah DOMContentLoaded untuk memicu animasi
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add("body-loaded");
+        updateNotFoundMessageVisibility(); // Panggil ini juga saat DOMContentLoaded
+    });
   </script>
 
 </body>
