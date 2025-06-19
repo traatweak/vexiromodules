@@ -299,6 +299,7 @@
         /* Category Buttons */
         .category-buttons {
             display: flex;
+            flex-wrap: wrap; /* Allows buttons to wrap to the next line */
             justify-content: center;
             gap: 10px; /* Jarak antar tombol */
             margin-top: 10px;
@@ -514,14 +515,16 @@
             font-weight: 600;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Untuk mendorong .last-indicator ke kanan */
+            /* Changed from justify-content: space-between; to allow custom spacing for github icon */
             flex-wrap: wrap;
+            gap: 8px; /* Space between title, version, and icon/badge */
         }
 
         .module-card h2 .main-info {
             display: flex;
             align-items: center;
             flex-shrink: 0;
+            /* Allow main-info to take necessary space */
         }
 
         .module-card h2 .icon {
@@ -555,6 +558,20 @@
             font-size: 0.9em; /* Dikurangi dari 1em */
             color: var(--accent-main);
         }
+        
+        /* New styles for the GitHub icon within the H2 */
+        .module-card h2 .github-icon {
+            font-size: 0.9em; /* Adjust icon size relative to the title */
+            color: var(--text-muted); /* Default color for the icon */
+            transition: color 0.3s ease, transform 0.2s ease;
+            text-decoration: none; /* Remove underline for the link */
+            margin-left: 8px; /* Space between title/version and GitHub icon */
+        }
+
+        .module-card h2 .github-icon:hover {
+            color: var(--accent-main); /* Change color on hover */
+            transform: translateY(-2px);
+        }
 
         /* Gaya untuk teks "Create by @traatweak" */
         .module-card .author-tag {
@@ -571,6 +588,19 @@
             margin-top: 1px; /* Dikurangi dari 2px */
             margin-bottom: 0px; /* Jarak dengan deskripsi */
             font-weight: 400;
+            display: flex; /* Ensure flex for GitHub icon alignment */
+            align-items: center;
+            gap: 5px; /* Space between text and icon */
+        }
+
+        .module-card .category-tag .github-icon {
+            font-size: 1.1em; /* Adjust size of the GitHub icon */
+            color: var(--text-muted); /* Default color */
+            transition: color 0.3s ease;
+        }
+
+        .module-card .category-tag .github-icon:hover {
+            color: var(--text-light); /* Lighter on hover */
         }
 
         .module-card p {
@@ -782,7 +812,7 @@
             .module-card h2 .last-indicator {
                 margin-left: 8px; /* Dikurangi dari 10px */
                 font-size: 0.75em; /* Dikurangi dari 0.8em */
-                gap: 2px; /* Dikurangi dari 3px */
+                gap: 2px; /* Dikurangi from 3px */
             }
             .module-card h2 .last-indicator .fas {
                 font-size: 0.8em; /* Dikurangi dari 0.9em */
@@ -891,14 +921,15 @@
             <button class="category-btn" data-category="brevent">Brevent</button>
             <button class="category-btn" data-category="magiks">Magiks</button>
             <button class="category-btn" data-category="shortlink">Shortlink</button>
+            <button class="category-btn" data-category="apk">Aplikasi 🚀</button>
+            <button class="category-btn" data-category="last">Last 🚀</button>
+            <button class="category-btn" data-category="tren">Trending 🔥</button>
         </div>
 <br>        
         <div class="container" id="module-container">
             <div class="module-card">
                 <h2 data-module-name="Stabilize Game + 120Hz">
                   <span class="main-info">Stabilize Game + 120Hz</span>
-                    <span class="last-indicator">
-                        <i class="fas fa-meteor"></i> Last
                     </span>
                 </h2>
                 <p class="author-tag">Created by @kaze</p>
@@ -1082,7 +1113,7 @@ List game JIT :<br>
 ʜᴏᴡ 𝘁𝗼 𝗶𝗻sᴛᴀ𝗹𝗹 :<br>
  sh /sdcard/ExclusivePNR/kentod.sh<br>
 <br>
-ʜᴏᴡ 𝘁𝗼 𝘂𝗻𝗶𝗻sᴛᴀ𝗹𝗹 : <br>
+ʜᴏ𝘄 𝘁𝗼 𝘂𝗻𝗶𝗻sᴛᴀ𝗹𝗹 : <br>
 sh /sdcard/ExclusivePNR/unkentod.sh<br>
 <br>
 @EstProject01</p>
@@ -1107,13 +1138,143 @@ sh /sdcard/ExclusivePNR/unkentod.sh<br>
                 <a href="https://www.mediafire.com/file/1qlavcc67zu4fgh/GigaInternetV11-Final.zip/file" class="download-btn" data-original-text="Download">Download</a>
             </div>
             
+     <div class="module-card">
+    <h2 data-module-name="M">
+        <span class="main-info">Magiks Vexiro</span>
+        <a href="https://youtube.com/@traaweak?si=rRrTJSRMs_eP93Fb" target="_blank" rel="noopener noreferrer" class="github-icon" aria-label="YouTube Repository">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <span class="last-indicator">
+            <i class="fas fa-meteor"></i> Last
+        </span>
+    </h2>
+    <p class="author-tag">Developer by @traatweak</p>
+    <p class="category-tag" data-category="apk last">Category | Aplikasi</p>
+    <p class="author-tag">Version v3.6.0 (202519)</p>
+<br>
+    <p>Feature 🚀<br>
+        Tingkatkan Performa Android Tanpa Root Ingin<br>
+        performa Android maksimal tanpa perlu root? Magiks <br>
+        Vexiro adalah solusinya Aplikasi booster canggih ini <br>
+        dilengkapi dengan modul fleksibel untuk optimasi kinerja <br>
+        kustomisasi antarmuka dan berbagai fitur keren lainnya <br>
+        Nikmatipengalaman Android yang lebih mulus dan <br>
+        responsif berkat integrasi Shizuku yang inovatif<br>
+    </p>
+    <a href="https://safefileku.com/download/rQOoFvrpc8xp9h66" class="download-btn" data-original-text="Download">Download</a>
+</div>
+
+
+     <div class="module-card">
+    <h2 data-module-name="M">
+        <span class="main-info">MagicTuner-Pro</span>
+        <a href="https://youtube.com/@banglevv?si=hrQI-lfH4X5UBNsF" target="_blank" rel="noopener noreferrer" class="github-icon" aria-label="YouTube Repository">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <span class="last-indicator">
+            <i class="fas fa-meteor"></i> Last
+        </span>
+    </h2>
+    <p class="author-tag">Developer by @Banglevv</p>
+    <p class="category-tag" data-category="apk last">Category | Aplikasi</p>
+    <p class="author-tag">Version v5.1.1.20250527-Hyperion-pro</p>
+<br>
+    <p>Feature 🚀<br>
+        Fitur Game Mode Intervention di aplikasi Magic <br>
+        Tuner memungkinkan pengguna mengoptimalkan<br> 
+        pengalaman bermain dengan menyesuaikan <br>
+        pengaturan <br>
+        perangkat melalui API Game Mode yang tersedia di <br>
+        Android 10 ke atas<br>
+<br>
+Fitur ini dapat memprioritaskan performa game dengan <br>
+secara dinamis mengatur penggunaan CPU dan memori, 
+memastikan game berjalan lancar dan responsif<br>
+<br>
+Fitur ini dirancang untuk meningkatkan pengalaman bermain<br> 
+tanpa gangguan dan hanya tersedia pada perangkat <br>
+dengan Android 10 ke atas<br>
+    </p>
+    <a href="https://safefileku.com/download/hMaB264YAmrstXhV" class="download-btn" data-original-text="Download">Download</a>
+</div>
+
+     <div class="module-card">
+    <h2 data-module-name="P">
+        <span class="main-info">PerfMon-(FPS Meter)</span>
+        <a href="https://github.com/libxzr/PerfMon-Plus" target="_blank" rel="noopener noreferrer" class="github-icon" aria-label="GitHub Repository">
+            <i class="fab fa-github"></i>
+        </a>
+        <span class="last-indicator">
+            <i class="fas fa-meteor"></i> Last
+        </span>
+    </h2>
+    <p class="author-tag">Developer by @libxzr</p>
+    <p class="category-tag" data-category="apk last">Category | Aplikasi</p>
+    <p class="author-tag">Version v1.5</p>
+<br>
+    <p>Feature 🚀<br>
+        cpufreq monitoring<br>
+        cpuload monitoring<br>
+        gpufreq monitoring<br>
+        gpuload monitoring<br>
+        cpubw freq monitoring<br>
+        mincpubw monitoring<br>
+        m4m cache freq monitoring<br>
+        system cache (llc) freq monitoring<br>
+        memory usage monitoring<br>
+        current monitoring<br>
+        <br>
+        A simple performance monitor for Android‼️
+    </p>
+    <a href="https://safefileku.com/download/EfkXXWWAVxjyRQUS" class="download-btn" data-original-text="Download">Download</a>
+</div>
+
+            <div class="module-card">
+                <h2 data-module-name="G">
+                  <span class="main-info">Gaming Boost</span>
+                    <span class="last-indicator">
+                        <i class="fas fa-meteor"></i> Last
+                    </span>
+                </h2>
+                <p class="author-tag">Created by ©Enrique Brach</p>
+                <p class="category-tag" data-category="vexiro last">Category | Vexiro Modules</p>
+                <p>Improves performance and fluidity in games by optimizing resources, memory, and execution priority</p>
+                <a href="https://safefileku.com/download/ShcpB1Zw4z8CxQIR" class="download-btn" data-original-text="Download">Download</a>
+            </div>
+            
+                        <div class="module-card">
+                <h2 data-module-name="R">
+                  <span class="main-info">RAMBoost</span>
+                    <span class="last-indicator">
+                   <i class="fas fa-meteor"></i> Last
+                    </span>
+                </h2>
+                <p class="author-tag">Created by ©Enrique Brach</p>
+                <p class="category-tag" data-category="vexiro last">Category | Vexiro Modules</p>
+                <p>Optimizes RAM usage, reducing unnecessary consumption and improving system speed</p>
+                <a href="https://safefileku.com/download/1pQS6seaFecDUlmw" class="download-btn" data-original-text="Download">Download</a>
+            </div>
+            
+                    <div class="container" id="module-container">
+            <div class="module-card">
+                <h2 data-module-name="Stabilize Game + 120Hz">
+                  <span class="main-info">Stabilize Game + 120Hz</span>
+                     <span class="last-indicator">
+<i class="fas fa-chart-line"></i> Trending
+                    </span>
+                </h2>
+                <p class="author-tag">Created by @kaze</p>
+                <p class="category-tag" data-category="tren">Category | Vexiro Modules</p>
+                <p>Switch to gaming/perf mode smoother display and FPS responsive touch and more</p>
+                <a href="https://www.mediafire.com/file/s7q5lrs3ih9l5y9/Fix+Stabilize+Game+++144.zip/file" class="download-btn" data-original-text="Download">Download</a>
+            </div>
            
-            <p id="no-results-message">Wah module yang kamu cari tidak ada nih 🤷‍♂️</p>
+            <p id="no-results-message">Not Found 🤷‍♂️</p>
         </div>
     </main>
     
     <footer class="footer">
-        <p class="copyright-text">© 2025 Revox Evolution All rights reserved Developed by @traatweak</p>
+        <p class="copyright-text">© 2025 Revox Revolion All rights reserved Developed by @traatweak</p>
         <p class="license-text">
             Lisensi Perangkat Lunak<br>
             Program ini dirilis pada 18 Juni 2025<br><br>
@@ -1331,4 +1492,4 @@ sh /sdcard/ExclusivePNR/unkentod.sh<br>
         });
     </script>
 </body>
-</html>
+                                    </html>
